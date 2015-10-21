@@ -1,4 +1,5 @@
 import geb.junit4.GebReportingTest
+import jdk.nashorn.internal.ir.annotations.Ignore
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -34,9 +35,7 @@ class AllPagesTest extends GebReportingTest {
         // Download the chrome driver from this url:
         // https://sites.google.com/a/chromium.org/chromedriver/downloads
         // then place it into your directory, and change the second params of setProperty below
-        System.setProperty(
-                'webdriver.chrome.driver',
-                '/home/username/chromedriver')
+        System.setProperty('webdriver.chrome.driver','/Users/c07nw8xpg1hw/Documents/Application/chromedriver')
         // driver = new ChromeDriver()
         // driver.get("https://github.com")
     }
@@ -46,7 +45,7 @@ class AllPagesTest extends GebReportingTest {
      */
     @Test
     void testPageHome() {
-        pht.testSignUp()
+        pht.testFillSignUp()
     }
 
     /**
@@ -63,7 +62,7 @@ class AllPagesTest extends GebReportingTest {
      */
     @Test
     void testPageSignIn() {
-        psit.testSignIn()
+        psit.testSignInInvalidCredentials()
     }
 
     /**

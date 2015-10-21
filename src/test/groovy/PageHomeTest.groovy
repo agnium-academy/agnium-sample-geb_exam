@@ -14,21 +14,13 @@ class PageHomeTest extends GebReportingTest {
 
     public PageHome ph
 
-    /**
-     * Test search for desired keyword and repo result
-     *
-     * @param keyword
-     * @param repoResult
-     */
+
     void testFillSignUpWith(String username, String email, String password) {
         ph = to(PageHome)
-        ph.moduleHomeSignUp.fillSignUpFormWithCredentials()
+        ph.moduleHomeSignUp.fillSignUpFormWithCredentials(username,email,password)
     }
 
-    /**
-     * Test search for keyword: Git
-     * Should have the first result title text: git/git
-     */
+
     @Test
     void testFillSignUp() {
         testFillSignUpWith('username', 'email@domain.com', 'password')
