@@ -22,7 +22,7 @@ class PageHomeTest extends GebReportingTest {
      */
     void testFillSignUpWith(String username, String email, String password) {
         ph = to(PageHome)
-        ph.moduleHomeSignUp.fillSignUpFormWithCredentials()
+        ph.moduleHomeSignUp.fillSignUpFormWithCredentials(username,email,password)
     }
 
     /**
@@ -30,9 +30,9 @@ class PageHomeTest extends GebReportingTest {
      * Should have the first result title text: git/git
      */
     @Test
-    void testFillSignUp() {
-        testFillSignUpWith('username', 'email@domain.com', 'password')
-    }
+    void testFillSignUp (){
+                testFillSignUpWith('username', 'email@domain.com', 'password')
+            }
 
 
 
