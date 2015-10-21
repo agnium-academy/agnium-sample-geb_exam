@@ -23,7 +23,7 @@ class PageSearchTest extends GebReportingTest {
     void testSearchFor(String keyword, String repoResult) {
         ps = to(PageSearch)
         ps.moduleSearch.searchWithKeyword(keyword)
-        assert ps.moduleSearch.firstSearchResultText == repoResult
+        assert ps.moduleSearch.firstSearchResultText(repoResult)
         ps.moduleSearch.firstSearchResult.click()
     }
 
@@ -33,7 +33,7 @@ class PageSearchTest extends GebReportingTest {
      */
     @Test
     void testSearchForGit() {
-        testSearchFor('git', 'git')
+        testSearchFor('git', 'git/git')
     }
 
     /**
