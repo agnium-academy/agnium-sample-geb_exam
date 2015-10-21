@@ -1,6 +1,7 @@
 import geb.junit4.GebReportingTest
 import org.junit.After
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
@@ -36,7 +37,7 @@ class AllPagesTest extends GebReportingTest {
         // then place it into your directory, and change the second params of setProperty below
         System.setProperty(
                 'webdriver.chrome.driver',
-                '/home/username/chromedriver')
+                '/home/sgh201p0zh/Documents/Training/chromedriver')
         // driver = new ChromeDriver()
         // driver.get("https://github.com")
     }
@@ -46,8 +47,8 @@ class AllPagesTest extends GebReportingTest {
      */
     @Test
     void testPageHome() {
-        pht.testSignUp()
-    }
+        pht.testFillSignUp()
+        }
 
     /**
      * Test for page search
@@ -63,7 +64,7 @@ class AllPagesTest extends GebReportingTest {
      */
     @Test
     void testPageSignIn() {
-        psit.testSignIn()
+        psit.testSignInInvalidCredentials()
     }
 
     /**
