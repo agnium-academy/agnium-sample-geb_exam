@@ -35,7 +35,7 @@ class PageSignInTest extends GebReportingTest {
      */
     @Test
     void testSignInInvalidCredentials() {
-        testSignInWith('username', 'password', 'Incorrect username or password!!!')
+        testSignInWith('username', 'password', 'Incorrect username or password.')
     }
 
 }
