@@ -24,7 +24,7 @@ class PageSignInTest extends GebReportingTest {
     void testSignInWith(String username, String password, String indicator) {
         psi = to(PageSignIn)
         psi.moduleSignIn.signIn(username, password)
-        assert psi.moduleSignIn.flashMessage == indicator
+        assert psi.moduleSignIn.flashMessage(indicator)
     }
 
     /**
@@ -35,7 +35,7 @@ class PageSignInTest extends GebReportingTest {
      */
     @Test
     void testSignInInvalidCredentials() {
-        testSignInWith('username', 'password', 'Incorrect username or password!!!')
+        testSignInWith('agnium', 'invalidpassword', 'Incorrect username or password!!!')
     }
 
 }
