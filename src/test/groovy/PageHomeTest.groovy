@@ -22,7 +22,7 @@ class PageHomeTest extends GebReportingTest {
      */
     void testFillSignUpWith(String username, String email, String password) {
         ph = to(PageHome)
-        ph.moduleHomeSignUp.fillSignUpFormWithCredentials()
+        ph.moduleHomeSignUp.fillSignUpFormWithCredentials(username, email, password)
     }
 
     /**
