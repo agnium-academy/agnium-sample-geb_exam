@@ -16,13 +16,26 @@ import org.openqa.selenium.chrome.ChromeDriver
 @RunWith(JUnit4)
 class AllPagesTest extends GebReportingTest {
 
+    private static String OS = System.getProperty("os.name").toLowerCase();
+
     // Create global variables
     public WebDriver driver
+
+    //chromedriver for Mac OS by default
+    private String pathToDriver = 'src/res/mac/chromedriver'
 
     // Create global objects of tester
     PageHomeTest pht = new PageHomeTest()
     PageSearchTest pst = new PageSearchTest()
     PageSignInTest psit = new PageSignInTest()
+
+    public static boolean isMac() {
+        return (OS.indexOf("mac") >= 0);
+    }
+
+    public static boolean isUnix() {
+        return (OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0 );
+    }
 
     /**
      * Setup the browser driver before
@@ -31,14 +44,16 @@ class AllPagesTest extends GebReportingTest {
      */
     @Before
     void setUp() {
-        // Download the chrome driver from this url:
-        // https://sites.google.com/a/chromium.org/chromedriver/downloads
-        // then place it into your directory, and change the second params of setProperty below
-        System.setProperty(
-                'webdriver.chrome.driver',
-                '/home/username/chromedriver')
-        // driver = new ChromeDriver()
-        // driver.get("https://github.com")
+
+        System.out.println(OS);
+
+        if (isUnix()){
+            pathToDriver = 'src/res/linux/chromedriver'
+        }
+
+        System.setProperty('webdriver.chrome.driver', pathToDriver)
+        driver = new ChromeDriver()
+        driver.get("https://github.com")
     }
 
     /**
@@ -73,5 +88,4 @@ class AllPagesTest extends GebReportingTest {
     void tearDown() {
         System.out.print("Testing session ended")
     }
-
 }
